@@ -28,6 +28,38 @@ The widget lands in the bar's right section. Move it with:
 omarchy bar move nzkritik.desktop-hue --section center
 ```
 
+### External dependencies
+
+None. The shader script ships in `bin/`, and the widget uses only Omarchy's own
+`qs.Ui` kit and Hyprland.
+
+## Remove
+
+```bash
+bin/omarchy-monochrome off                  # clear the shader first
+omarchy plugin remove nzkritik.desktop-hue
+```
+
+Turning the shader off before removing is worth doing: it clears
+`decoration:screen_shader` and deletes the `~/.config/hypr/shaders/current.frag`
+symlink. Removing the plugin while a hue is active would leave your desktop
+tinted with the plugin gone. If that happens, clear it by hand:
+
+```bash
+rm -f ~/.config/hypr/shaders/current.frag
+hyprctl eval 'hl.config({ decoration = { screen_shader = "[[EMPTY]]" } })'
+```
+
+Generated shaders live in `~/.config/hypr/shaders/monochrome/` and can be
+deleted freely.
+
+### What it writes
+
+Only its own files: generated `.frag` shaders under
+`~/.config/hypr/shaders/monochrome/`, the `current.frag` symlink, and
+`decoration:screen_shader` set at runtime via `hyprctl` — each only when you
+pick a hue. It never edits your Hyprland or Omarchy config files.
+
 ## Use
 
 Click the `󰸌` icon in the bar. The list shows every palette with a colour
