@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "nzkritik.desktop-hue",
+  "name": "Desktop hue",
+  "version": "1.0.0",
+  "author": "nzkritik",
+  "description": "Tint the whole desktop with a duotone screen shader. Pick a hue from the bar, or turn it off.",
+  "kinds": ["bar-widget"],
+  "entryPoints": { "barWidget": "Panel.qml" },
+  "barWidget": {
+    "displayName": "Desktop hue",
+    "description": "Pick a desktop-wide duotone tint, or turn it off",
+    "category": "System",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
