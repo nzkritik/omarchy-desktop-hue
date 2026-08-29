@@ -60,6 +60,11 @@ Only its own files: generated `.frag` shaders under
 `decoration:screen_shader` set at runtime via `hyprctl` — each only when you
 pick a hue. It never edits your Hyprland or Omarchy config files.
 
+Each shader is written to an exclusively created temporary file in that
+directory and renamed into place, so a write is atomic and never follows a
+symlink out of the shader directory. A destination that is not a regular file
+is refused rather than written through.
+
 ## Use
 
 Click the `󰸌` icon in the bar. The list shows every palette with a colour
