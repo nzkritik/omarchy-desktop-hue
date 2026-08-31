@@ -3,9 +3,15 @@
 An Omarchy bar widget that tints your **entire desktop** with a duotone screen
 shader. Click the palette icon, pick a hue, or drop back to full colour.
 
-![The hue list open on the bar](docs/screenshot.png)
+![The hue list open on the bar](preview.png)
 
-![The hue plugin in action](demo1.webp)
+![Cycling through hues on the live desktop](docs/demo1.webp)
+
+![Light green on black across the whole desktop](docs/preview2.png)
+
+![Violet on black across the whole desktop](docs/preview3.png)
+
+![Black and white, high contrast, across the whole desktop](docs/preview4.png)
 
 Because it runs as a Hyprland screen shader (`decoration:screen_shader`), the
 tint applies to the final composited frame — every window, browsers, video,
