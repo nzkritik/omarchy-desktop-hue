@@ -45,11 +45,17 @@ palette_names() {
 }
 
 hex_to_vec3() { # #rrggbb -> "r, g, b" floats
-  local h="${1#\#}"
-  printf '%.6f, %.6f, %.6f' \
-    "$(echo "scale=6; $((16#${h:0:2})) / 255" | bc)" \
-    "$(echo "scale=6; $((16#${h:2:2})) / 255" | bc)" \
-    "$(echo "scale=6; $((16#${h:4:2})) / 255" | bc)"
+  # Fixed-point in bash rather than bc: bc is not part of Arch's base and is
+  # missing on a trimmed install, and 0..255 over 255 needs no arbitrary
+  # precision. Scaling by 10^6 first keeps six decimals, and bash's integer
+  # division truncates toward zero exactly as `bc` with `scale=6` does.
+  local h="${1#\#}" i n s sep=''
+  for i in 0 2 4; do
+    n=$((16#${h:i:2}))
+    s=$((n * 1000000 / 255))
+    printf '%s%d.%06d' "$sep" "$((s / 1000000))" "$((s % 1000000))"
+    sep=', '
+  done
 }
 
 generate() { # <name> <strength> -> writes .frag, echoes path
