@@ -5,6 +5,8 @@ shader. Click the palette icon, pick a hue, or drop back to full colour.
 
 ![The hue list open on the bar](docs/screenshot.png)
 
+![The hue plugin in action](demo1.webp)
+
 Because it runs as a Hyprland screen shader (`decoration:screen_shader`), the
 tint applies to the final composited frame — every window, browsers, video,
 games, the bar itself. No per-app configuration.
