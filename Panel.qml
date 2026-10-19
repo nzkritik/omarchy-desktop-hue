@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Ui
 
 // Bar widget for the desktop-wide duotone shader. Clicking the bar icon drops
@@ -204,8 +205,8 @@ Panel {
               height: Style.spacing.popupRowHeight
               radius: Style.cornerRadius
               color: isActive
-                ? Style.selectedFillFor(root.bar.foreground, Color.accent)
-                : (hot ? Style.hoverFillFor(root.bar.foreground, Color.accent) : "transparent")
+                ? Style.selectedFillFor(root.bar.foreground, Commons.Color.accent)
+                : (hot ? Style.hoverFillFor(root.bar.foreground, Commons.Color.accent) : "transparent")
 
               // Swatch: the palette's highlight colour ringed by its midtone,
               // which is what the tint actually looks like on screen. The Off
@@ -233,7 +234,7 @@ Panel {
                 anchors.verticalCenter: parent.verticalCenter
                 text: String(row.modelData.label)
                 color: row.isActive || row.hot
-                  ? Style.hoverStateColor(root.bar.foreground, Color.accent)
+                  ? Style.hoverStateColor(root.bar.foreground, Commons.Color.accent)
                   : root.bar.foreground
                 font.family: root.bar.fontFamily
                 font.pixelSize: Style.font.bodySmall
