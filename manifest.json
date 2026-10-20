@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "nzkritik.desktop-hue",
   "name": "Desktop hue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "nzkritik",
   "description": "Tint the whole desktop with a duotone screen shader. Pick a hue from the bar, or turn it off.",
   "kinds": ["bar-widget"],
